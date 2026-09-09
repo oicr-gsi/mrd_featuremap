@@ -1,0 +1,39 @@
+{
+    "MRDFeatureMap.base_file_name": "Pa_46_matched_cohort",
+    "MRDFeatureMap.cfdna_featuremap": "/.mounts/labs/gsi/testdata/mrd_featuremap/input_data/Pa_46_333_LuNgs_08.featuremap.chr20.vcf.gz",
+    "MRDFeatureMap.cfdna_featuremap_index": "/.mounts/labs/gsi/testdata/mrd_featuremap/input_data/Pa_46_333_LuNgs_08.featuremap.chr20.vcf.gz.tbi",
+    "MRDFeatureMap.cfdna_cram_bam": "/.mounts/labs/gsi/testdata/mrd_featuremap/input_data/Pa_46.333_LuNgs_08.Lb_744.chr20.cram",
+    "MRDFeatureMap.cfdna_cram_bam_index": "/.mounts/labs/gsi/testdata/mrd_featuremap/input_data/Pa_46.333_LuNgs_08.Lb_744.chr20.cram.crai",
+    "MRDFeatureMap.featuremap_df_file": "/.mounts/labs/gsi/testdata/mrd_featuremap/input_data/Pa_46_333_LuNgs_08.featuremap_df.parquet",
+    "MRDFeatureMap.srsnv_metadata_json": "/.mounts/labs/gsi/testdata/mrd_featuremap/input_data/Pa_46_333_LuNgs_08.srsnv_metadata.json",
+    "MRDFeatureMap.bcftools_extra_args": "-f PASS --type snps -m2 -M2 -i 'QUAL>10'",
+    "MRDFeatureMap.include_regions": [
+        "/.mounts/labs/gsi/testdata/mrd_featuremap/input_data/ug_hcr.bed"
+    ],
+    "MRDFeatureMap.exclude_regions": [
+        "/.mounts/labs/gsi/testdata/mrd_featuremap/input_data/af-only-gnomad.hg38.snps.AF_over_1e-3.vcf.gz",
+        "/.mounts/labs/gsi/testdata/mrd_featuremap/input_data/Homo_sapiens_assembly38.dbsnp138.chr1-22XY.snps.vcf.gz",
+        "/.mounts/labs/gsi/testdata/mrd_featuremap/input_data/UG_MRD_blacklist_v0.bed"
+    ],
+    "MRDFeatureMap.mrd_analysis_params": {
+        "signature_filter_query": "(norm_coverage <= 2.5) and (norm_coverage >= 0.6)",
+        "read_filter_query": "filt>0 and snvq>40"
+    },
+    "MRDFeatureMap.references": {
+        "ref_fasta": "/.mounts/labs/gsi/testdata/mrd_featuremap/input_data/Homo_sapiens_assembly38.fasta",
+        "ref_fasta_index": "/.mounts/labs/gsi/testdata/mrd_featuremap/input_data/Homo_sapiens_assembly38.fasta.fai",
+        "ref_dict": "/.mounts/labs/gsi/testdata/mrd_featuremap/input_data/Homo_sapiens_assembly38.dict"
+    },
+    "MRDFeatureMap.snv_database": "/.mounts/labs/gsi/testdata/mrd_featuremap/input_data/pancan_pcawg_2020.chr20.vcf.gz",
+    "MRDFeatureMap.n_synthetic_signatures": 5,
+    "MRDFeatureMap.mapping_quality_threshold": 0,
+    "MRDFeatureMap.diluent_germline_vcfs": [],
+    "MRDFeatureMap.create_md5_checksum_outputs": true,
+    "MRDFeatureMap.external_matched_signatures": [
+        "/.mounts/labs/gsi/testdata/mrd_featuremap/input_data/Pa_46_FreshFrozen.ann.chr20.vcf.gz"
+    ],
+    "MRDFeatureMap.external_control_signatures": [
+        "/.mounts/labs/gsi/testdata/mrd_featuremap/input_data/Pa_67_FFPE.ann.chr20.vcf.gz"
+    ],
+    "MRDFeatureMap.monitoring_script_input": "/.mounts/labs/gsi/testdata/mrd_featuremap/input_data/monitor_1.0.sh"
+}

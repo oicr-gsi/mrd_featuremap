@@ -1,0 +1,6 @@
+{
+    "names": [
+        "MRDFeatureMap"
+    ],
+    "wdl": "mrd_featuremap.wdl"
+}
