@@ -41,7 +41,7 @@
     },
     "MRDFeatureMap.cfdna_cram_bam_index": {
          "contents": {
-           "configuration": "/.mounts/labs/gsi/testdata/mrd_featuremap/input_data/Pa_46.333_LuNgs_08.Lb_744.chr20.cram.crai",,
+           "configuration": "/.mounts/labs/gsi/testdata/mrd_featuremap/input_data/Pa_46.333_LuNgs_08.Lb_744.chr20.cram.crai",
            "externalIds": [
              {
               "id": "TEST",
