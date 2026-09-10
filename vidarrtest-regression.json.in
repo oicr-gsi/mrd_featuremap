@@ -172,10 +172,22 @@
     "MRDFeatureMap.MergeMd5sToJson.timeout": null,
     "MRDFeatureMap.MergeVcfsIntoBed.modules": null,
     "MRDFeatureMap.MrdDataAnalysis.modules": null,
-    "MRDFeatureMap.monitoring_script_input": "/.mounts/labs/gsi/testdata/mrd_featuremap/input_data/monitor_1.0.sh",
+    "MRDFeatureMap.monitoring_script_input": {
+         "contents": {
+           "configuration": "/.mounts/labs/gsi/testdata/mrd_featuremap/input_data/monitor_1.0.sh",
+           "externalIds": [
+             {
+              "id": "TEST",
+              "provider": "TEST"
+             }
+          ]
+        },
+        "type": "EXTERNAL"
+    },
     "MRDFeatureMap.mrd_analysis_params": {
         "signature_filter_query": "(norm_coverage <= 2.5) and (norm_coverage >= 0.6)",
-        "read_filter_query": "filt>0 and snvq>40"
+        "read_filter_query": "filt>0 and snvq>40",
+        "tumor_sample": null
     },
     "MRDFeatureMap.no_address_override": null,
     "MRDFeatureMap.n_synthetic_signatures": 5,
@@ -222,7 +234,8 @@
                ]
               },
         "type": "EXTERNAL"
-        }
+        },
+        "ref_alt": null
     },
     "MRDFeatureMap.snv_database": {
       "contents": {
