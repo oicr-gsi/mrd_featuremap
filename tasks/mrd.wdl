@@ -15,6 +15,7 @@ task MrdDataAnalysis {
     File srsnv_metadata_json
     String docker
     String modules = "apptainer/1.4.5"
+    String temp_dir
     Int jobMemory
     Int cpus
     File monitoring_script
@@ -22,7 +23,7 @@ task MrdDataAnalysis {
   command <<<
     set -xeuo pipefail
     bash ~{monitoring_script} | tee monitoring.log >&2 &
-    export APPTAINER_TMPDIR=/tmp
+    export APPTAINER_TMPDIR=~{temp_dir}
     
     # Reflink the inputs
     # 1 of 7: parquet files
@@ -137,6 +138,7 @@ task GenerateControlSignaturesFromDatabase {
     Int n_synthetic_signatures
     String docker
     String modules = "apptainer/1.4.5"
+    String temp_dir
     Int jobMemory
     Int cpus
     File monitoring_script
@@ -145,7 +147,7 @@ task GenerateControlSignaturesFromDatabase {
     set -xeuo pipefail
     bash ~{monitoring_script} | tee monitoring.log >&2 &
 
-    export APPTAINER_TMPDIR=/tmp
+    export APPTAINER_TMPDIR=~{temp_dir}
     REF=$(readlink -f ~{ref_fasta})
     REFDIR=${REF%/*}
 
@@ -196,6 +198,7 @@ task FeatureMapIntersectWithSignatures {
     String signature_type
     String docker
     String modules = "apptainer/1.4.5 bcftools/1.9"
+    String temp_dir
     Int jobMemory
     Int cpus
     File monitoring_script
@@ -206,7 +209,7 @@ task FeatureMapIntersectWithSignatures {
   command <<<
     set -xeuo pipefail
     bash ~{monitoring_script} | tee monitoring.log >&2 &
-    export APPTAINER_TMPDIR=/tmp
+    export APPTAINER_TMPDIR=~{temp_dir}
 
     featuremap_base=$(basename ~{featuremap})
     signature_base=$(basename ~{signature})

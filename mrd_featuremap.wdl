@@ -70,7 +70,7 @@ workflow MRDFeatureMap {
         Int? override_memory_gb_FeatureMapIntersect
 
         References references
-        
+        String temp_dir = "$TMP" 
         Int? preemptible_tries
         Boolean? no_address_override
         # Used for running on other clouds (aws)
@@ -316,7 +316,12 @@ workflow MRDFeatureMap {
         help: "json file that will contain md5 checksums for requested output files",
         type: "File",
         category: "output"
-    }
+      }
+      temp_dir: {
+        type: "String",
+        help: "Temporary directory, primarily to use with apptainer, container manager",
+        category: "param_optional"
+      }
   }
 
   Int preemptibles = select_first([preemptible_tries, 1])
@@ -399,6 +404,7 @@ workflow MRDFeatureMap {
         ref_fasta = references.ref_fasta,
         ref_fasta_index = references.ref_fasta_index,
         ref_dict = references.ref_dict,
+        temp_dir = temp_dir,
         docker = global.ugbio_mrd_docker,
         jobMemory = 8,
         cpus = 2,
@@ -457,6 +463,7 @@ workflow MRDFeatureMap {
         signature_index = matched_idxs[i],
         signature_type = "matched",
         docker = global.ugbio_mrd_docker,
+        temp_dir = temp_dir,
         jobMemory = memory_gb_featuremap_intersect,
         cpus = 2,
         monitoring_script = monitoring_script  #!FileCoercion
@@ -471,6 +478,7 @@ workflow MRDFeatureMap {
         signature_index = control_idxs[i],
         signature_type = "control",
         docker = global.ugbio_mrd_docker,
+        temp_dir = temp_dir,
         jobMemory = memory_gb_featuremap_intersect,
         cpus = 2,
         monitoring_script = monitoring_script  #!FileCoercion
@@ -485,6 +493,7 @@ workflow MRDFeatureMap {
         signature_index = db_idxs[i],
         signature_type = "db_control",
         docker = global.ugbio_mrd_docker,
+        temp_dir = temp_dir,
         jobMemory = memory_gb_featuremap_intersect,
         cpus = 2,
         monitoring_script = monitoring_script  #!FileCoercion
@@ -507,6 +516,7 @@ workflow MRDFeatureMap {
       basename = base_file_name,
       featuremap_df_file = featuremap_df_file,
       srsnv_metadata_json = srsnv_metadata_json,
+      temp_dir = temp_dir,
       docker = global.ugbio_mrd_docker,
       jobMemory = memory_extract_coverage,
       cpus = 4,
