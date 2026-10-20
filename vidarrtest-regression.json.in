@@ -3,6 +3,7 @@
   "arguments": {
     "monitoring_script": null,
     "MRDFeatureMap.base_file_name": "Pa_46_matched_cohort",
+    "MRDFeatureMap.temp_dir": "/tmp",
     "MRDFeatureMap.cfdna_featuremap": {
 	 "contents": {
 	   "configuration": "/.mounts/labs/gsi/testdata/mrd_featuremap/input_data/Pa_46_333_LuNgs_08.featuremap.chr20.vcf.gz",
